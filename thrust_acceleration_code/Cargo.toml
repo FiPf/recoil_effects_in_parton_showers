@@ -1,0 +1,17 @@
+[package]
+name = "athrust_accel"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "athrust_accel"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.24.1", features = ["extension-module"] }
+numpy = "0.24.0"
+ndarray = "0.15.6"
+
+[build-system]
+requires = ["maturin>=0.14"]
+build-backend = "maturin"
