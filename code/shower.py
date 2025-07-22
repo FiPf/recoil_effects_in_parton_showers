@@ -1,3 +1,7 @@
+__author__ = 'Fiona C. Pärli'
+__email__ = 'fiona.paerli@students.unibe.ch'
+__date__ = 'June 2025'
+
 import numpy as np
 from four_vector import FourVector as FV
 from typing import Callable
@@ -127,18 +131,13 @@ def GenRandV(n1: FV, n2: FV):
 
 def shower(origEvent: list[FV], NeV: int, tstart: float, tmax: float,
            initialweight: float, recoil_on: bool, output_file: str,
-           angle_in_degrees: float, recoil_function: Callable,
+           angle_in_degrees: float, recoil_function: Callable, IAS: float = IAS,
            baseline_bin_E=None, baseline_bin_t=None,
            baseline_E_out=None, baseline_t_out=None):
     """
-    Run a parton shower simulation with optional recoil and Sudakov factor extraction.
+    Run a parton shower simulation with optional recoil and Sudakov factor computation.
 
-    This Monte Carlo routine iteratively evolves an initial event using a dipole-based
-    parton shower. At each step, it generates emissions, applies a specified recoil scheme 
-    if enabled, fills Sudakov form factor histograms $S(t)$ and $S(E)$, and tracks emissions 
-    that escape an angular cone defined by the given angle.
-
-    The function saves all histograms as PDF plots in the `histograms2` folder.
+    The function saves all histograms as PDF plots in the `histograms` folder.
     If `recoil_on` is False, a default collinear emission with no recoil is applied.
 
     After the evolution, this function produces histograms for:
@@ -172,7 +171,7 @@ def shower(origEvent: list[FV], NeV: int, tstart: float, tmax: float,
     """
 
     n_broken = 0
-    # Initialize histograms
+
     bin_S_of_t = Hist(20, 0.1)
     hist_t_outside = Hist(20, 0.1)
     hist_tE_outside = Hist(20, 0.1)
@@ -343,7 +342,6 @@ def shower(origEvent: list[FV], NeV: int, tstart: float, tmax: float,
     density = hist_E_outside.entries / (bin_widths * NeV)
     total_prob = np.sum(hist_E_outside.entries) / NeV
     print(f"Estimated probability of an event breaking the cone: {total_prob:.6f}")
-
     # Should give same answer:
     prob_from_integral = np.sum(density * bin_widths)
     print(f"Integrated PDF area: {prob_from_integral:.6f}")

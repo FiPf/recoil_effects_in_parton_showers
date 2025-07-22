@@ -1,4 +1,9 @@
-#This class is similar to: https://github.com/MarcelBalsiger/ngl_resum/blob/master/ngl_resum/ngl_resum.py 
+#This class is similar to: https://github.com/MarcelBalsiger/ngl_resum/blob/master/ngl_resum/ngl_resum.py (doi:10.1007/JHEP09(2020)029, https://inspirehep.net/literature/1798660)
+
+__author__ = 'Fiona C. Pärli'
+__email__ = 'fiona.paerli@students.unibe.ch'
+__date__ = 'June 2025'
+
 import numpy as np
 import math
 

@@ -1,3 +1,7 @@
+__author__ = 'Fiona C. Pärli'
+__email__ = 'fiona.paerli@students.unibe.ch'
+__date__ = 'June 2025'
+
 import numpy as np
 from four_vector import FourVector as FV
 from typing import Callable
@@ -89,7 +93,6 @@ def GenRandV(n1: FV, n2: FV):
     """
     global nan_bool
     if np.isnan(FV.to_array(n1)).any() or np.isnan(FV.to_array(n2)).any():
-        print("OOO")
         print(n1, n2)
         nan_bool = True
     n1 = n1/FV.energy(n1)

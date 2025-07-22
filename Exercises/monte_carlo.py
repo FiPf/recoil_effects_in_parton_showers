@@ -1,3 +1,7 @@
+__author__ = 'Fiona C. Pärli'
+__email__ = 'fiona.paerli@students.unibe.ch'
+__date__ = 'June 2025'
+
 import numpy as np
 from typing import Callable
 

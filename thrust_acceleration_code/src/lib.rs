@@ -1,3 +1,7 @@
+//__author__ = 'Fiona C. Pärli'
+//__email__ = 'fiona.paerli@students.unibe.ch'
+//__date__ = 'June 2025'
+
 use numpy::{PyReadonlyArray2}; //from pyo3 package, converts Python numpy arrays in Rust data type (2d numpy arrays of f64) 
 use pyo3::prelude::*; //for writing Python extensions in Rust
 use pyo3::types::PyModule; //interaction with Python modules, wrapping Rust functions as a Python callable

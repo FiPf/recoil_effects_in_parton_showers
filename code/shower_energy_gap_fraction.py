@@ -1,3 +1,7 @@
+__author__ = 'Fiona C. Pärli'
+__email__ = 'fiona.paerli@students.unibe.ch'
+__date__ = 'June 2025'
+
 import numpy as np
 from four_vector import FourVector as FV
 from typing import Callable
@@ -65,7 +69,6 @@ def GenRandV(n1, n2):
     """
     global nan_bool
     if np.isnan(FV.to_array(n1)).any() or np.isnan(FV.to_array(n2)).any():
-        print("OOO")
         print(n1, n2)
         nan_bool = True
     n1 = n1/FV.energy(n1)
@@ -101,8 +104,7 @@ def GenRandV(n1, n2):
         diff = vp-v
         ndiff= sp(diff,diff)
         boostm=  np.identity(4)
-        #if abs(ndiff) < 1e-10 :
-        #    print('no: ',v,' and',vp)
+        
         if abs(ndiff) > 1.0e-10 :
             boostm += -2/ndiff*np.tensordot(diff,np.dot(metric,diff),0)
         return boostm
@@ -130,11 +132,7 @@ def shower(origEvent: list[FV], NeV: int, tstart: float, tmax: float,
     """
     Simulate a parton shower evolution and record full emission data to a CSV file.
 
-    This Monte Carlo shower algorithm starts from an initial event (a list of FourVector objects)
-    and evolves the event through successive emissions using a dipole-based parton shower approach.
-    The evolution is governed by virtual corrections and an evolution variable `t`.
-    Each emission either applies recoil kinematics (if `recoil_on` is True) or simple no-recoil kinematics.
-    At each emission step, the function records details such as:
+    At each emission step, the function records:
         - The current evolution variable `t`
         - The current event momenta
         - The thrust value and thrust axis (if recoil is on)
