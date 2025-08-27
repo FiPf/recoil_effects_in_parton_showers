@@ -148,8 +148,7 @@ def toy_model_sol(n: int, t: float, V: float, R: float):
     else:
         factor = (R / V) ** (n - 2)
         return factor * np.exp(-n * V * t) * (1 - np.exp(V * t)) ** (n - 2)/math.factorial(n-2)
-    
+
 def all_order_sum(t: float, V: float, R: float):
-    up = np.exp(R/V) - np.exp(-2*V*t)*np.exp(R/V)
-    down = np.exp(V*t)
-    return up/down
+    """Closed form S(t) = sum_{n>=2} H_n(t)."""
+    return np.exp(-2 * V * t) * np.exp((R / V) * ((1 - np.exp(-V * t))))
