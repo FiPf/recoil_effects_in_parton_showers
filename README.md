@@ -31,3 +31,6 @@ The GitHub repository contains three essential folders, whose contents I will li
   This folder contains the Rust implementation of the thrust axis and thrust value computation, described in *Section `Thrust Algorithm`*. The Rust version significantly improves performance compared to a pure Python implementation.
 
 The code is structured to be modular and hopefully easy to extend or adapt for future studies.
+
+## Important Note
+If you are unable to use the Rust thrust function, you can use the Python code. In the file where the shower is stored (for example, shower.py), uncomment the import of the Python version at the top of the file and comment out the Rust version. However, this will signficantly slow down the process. 
