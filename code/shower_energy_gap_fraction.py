@@ -10,7 +10,11 @@ from plotting import Hist
 import recoil
 import os
 import matplotlib.pyplot as plt
+
+#chose which version you want
 from athrust_accel import athrust  # Import the Rust-accelerated function
+#from thrust import athrust #Python thrust function, slow
+
 from tqdm import tqdm
 import pandas as pd
 import event_analysis

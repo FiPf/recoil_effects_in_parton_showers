@@ -14,7 +14,11 @@ import os
 import matplotlib.pyplot as plt
 import event_analysis
 from event_analysis import energy_out
+
+#chose which version you want
 from athrust_accel import athrust  # Import the Rust-accelerated function
+#from thrust import athrust #Python thrust function, slow
+
 import sys
 from tqdm import tqdm
 
